@@ -12,12 +12,21 @@ struct QuizView: View {
     @StateObject private var viewModel = QuizViewModel()
     
     var body: some View {
-        VStack {
-            QuizQuestionView(question: viewModel.currentQuestion?.question ?? "")
+        
+        NavigationStack {
+            VStack {
+                if viewModel.quizComplete {
+                    NavigationLink(destination: ResultView()) {
+                        EmptyView()
+                    }
+                } else {
+                    QuizQuestionView(question: viewModel.currentQuestion?.question ?? "Test Question \(viewModel.currentQuestionIndex + 1)")
+                }
+            }
+            .navigationTitle(Text("\(viewModel.currentQuestionIndex + 1)/\(viewModel.quiz.questions.count)"))
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden()
         }
-        .navigationTitle(Text("1/10"))
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden()
     }
 }
 
