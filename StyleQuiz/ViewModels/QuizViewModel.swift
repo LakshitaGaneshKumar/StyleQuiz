@@ -26,10 +26,13 @@ class QuizViewModel: ObservableObject {
     }
     
     func nextQuestion() {
+        checkQuizCompletion()
+        
+        if quizComplete { return }
+        
         quiz.questions[currentQuestionIndex].selectedAnswerIndices = selectedAnswerIndices
         currentQuestionIndex += 1
         currentQuestion = quiz.questions[currentQuestionIndex]
-        checkQuizCompletion()
     }
     
     private func checkQuizCompletion() {

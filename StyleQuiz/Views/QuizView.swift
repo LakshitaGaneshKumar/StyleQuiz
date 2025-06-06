@@ -13,20 +13,25 @@ struct QuizView: View {
     
     var body: some View {
         
-        NavigationStack {
-            VStack {
-                if viewModel.quizComplete {
-                    NavigationLink(destination: ResultView()) {
-                        EmptyView()
-                    }
-                } else {
-                    QuizQuestionView(question: viewModel.currentQuestion?.question ?? "Test Question \(viewModel.currentQuestionIndex + 1)")
+        VStack {
+            if viewModel.quizComplete {
+                NavigationLink(destination: ResultView()) {
+                    BlackButtonView(text: "See my results...")
+                }
+            } else {
+                QuizQuestionView(question: viewModel.currentQuestion?.question ?? "Test Question \(viewModel.currentQuestionIndex + 1)")
+                
+                Button {
+                    viewModel.nextQuestion()
+                } label: {
+                    BlackButtonView(text: "Next")
                 }
             }
-            .navigationTitle(Text("\(viewModel.currentQuestionIndex + 1)/\(viewModel.quiz.questions.count)"))
-            .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden()
         }
+        .navigationTitle(Text("\(viewModel.currentQuestionIndex + 1)/\(viewModel.quiz.questions.count)"))
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden()
+        .navigationBarHidden(Bool(viewModel.quizComplete))
     }
 }
 

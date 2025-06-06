@@ -23,15 +23,7 @@ struct WelcomeView: View {
                 Spacer()
                 
                 NavigationLink(destination: QuizView()) {
-                    Text("Start Quiz")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 200, height: 50)
-                        .background(Color.black)
-                        .cornerRadius(10)
-                        .shadow(radius: 5)
-                        .padding()
+                    BlackButtonView(text: "Start Quiz")
                 }
             }
             .padding()

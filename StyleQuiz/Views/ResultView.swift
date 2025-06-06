@@ -9,8 +9,13 @@ import SwiftUI
 
 struct ResultView: View {
     var body: some View {
-        Text("Result View")
+        
+        VStack {
+            Text("Result View")
+        }
+        .navigationBarBackButtonHidden()
     }
+    
 }
 
 #Preview {
