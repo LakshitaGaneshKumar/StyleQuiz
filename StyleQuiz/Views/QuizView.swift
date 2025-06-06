@@ -8,9 +8,12 @@
 import SwiftUI
 
 struct QuizView: View {
+    
+    @StateObject private var viewModel: QuizViewModel
+    
     var body: some View {
         VStack {
-            Text("Quiz View")
+            QuizQuestionView(question: "What is your favorite color?")
         }
         .navigationTitle(Text("1/10"))
         .navigationBarTitleDisplayMode(.inline)
@@ -19,5 +22,5 @@ struct QuizView: View {
 }
 
 #Preview {
-    QuizView()
+    QuizView(viewModel: QuizViewModel())
 }
