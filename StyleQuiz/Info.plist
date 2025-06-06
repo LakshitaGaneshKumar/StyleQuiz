@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Maleah-Regular.otf</string>
+		<string>Maleah-Bold.otf</string>
+		<string>Maleah-Light.otf</string>
+		<string>Maleah-Oblique.otf</string>
+	</array>
+</dict>
+</plist>
