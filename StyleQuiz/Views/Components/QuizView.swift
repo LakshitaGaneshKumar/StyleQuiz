@@ -9,7 +9,7 @@ import SwiftUI
 
 struct QuizView: View {
     
-    @StateObject private var viewModel = QuizViewModel()
+    @EnvironmentObject var viewModel: QuizViewModel
     
     var body: some View {
         

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    
+    @StateObject var viewModel = QuizViewModel()
+        
     var body: some View {
         
         NavigationView {
@@ -33,4 +36,5 @@ struct WelcomeView: View {
 
 #Preview {
     WelcomeView()
+        .environmentObject(QuizViewModel())
 }
