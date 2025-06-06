@@ -9,11 +9,11 @@ import SwiftUI
 
 struct QuizView: View {
     
-    @StateObject private var viewModel: QuizViewModel
+    @StateObject private var viewModel = QuizViewModel()
     
     var body: some View {
         VStack {
-            QuizQuestionView(question: "What is your favorite color?")
+            QuizQuestionView(question: viewModel.currentQuestion?.question ?? "")
         }
         .navigationTitle(Text("1/10"))
         .navigationBarTitleDisplayMode(.inline)
@@ -22,5 +22,5 @@ struct QuizView: View {
 }
 
 #Preview {
-    QuizView(viewModel: QuizViewModel())
+    QuizView()
 }

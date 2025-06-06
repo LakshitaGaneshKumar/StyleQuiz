@@ -12,11 +12,11 @@ struct Question: Identifiable {
     var question: String
     var description: String
     var choices: [String]
-    var selectedChoice: String?
+    var selectedAnswerIndices: [Int] = []
 }
 
 class Quiz: ObservableObject {
-    static var questions: [Question] = [
+    var questions: [Question] = [
         Question(
             id: 0,
             question: "How old are you?",
