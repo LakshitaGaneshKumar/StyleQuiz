@@ -37,4 +37,5 @@ struct QuizView: View {
 
 #Preview {
     QuizView()
+        .environmentObject(QuizViewModel())
 }

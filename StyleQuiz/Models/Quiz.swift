@@ -7,16 +7,14 @@
 
 import Foundation
 
-struct Question: Identifiable {
-    var id: Int
-    var question: String
-    var description: String
-    var choices: [String]
-    var selectedAnswerIndices: [Int] = []
-}
-
-class Quiz: ObservableObject {
-    var questions: [Question] = [
+struct Question: Hashable {
+    let id: Int
+    let question: String
+    let description: String
+    let choices: [String]
+    let selectedAnswerIndices: [Int] = []
+    
+    static var questions: [Question] = [
         Question(
             id: 0,
             question: "How old are you?",
@@ -59,5 +57,9 @@ class Quiz: ObservableObject {
             description: "We understand that fashion can be expensive, so choose a budget that works for you!",
             choices: ["$0-$50", "$50-$150", "$150-$300", "$300+"])
     ]
+}
+
+class Quiz: ObservableObject {
+    
 }
 
